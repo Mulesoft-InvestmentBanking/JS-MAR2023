@@ -46,46 +46,112 @@ const person = {
     email: 'bob@marley.com',
     password: 'sekureP@ssw0rd9',
     username: 'barley',
-    createdAt: 1543945177623
+    createdAt: 1543945177623,
+    addresses: [
+        {
+          address: '1600 Pennsylvania Avenue',
+          city: 'Washington, D.C.',
+          zipcode: '20500',
+        },
+        {
+          address: '221B Baker St.',
+          city: 'London',
+          zipcode: 'WC2N 5DU',
+        }
+      ],
 };
  // Shift + Alt/Option + F
 
 // const firstName = person.firstName
 // const lastName = person["lastName"]
 
-const { firstName, lastName, email, password, username} = person 
-// 1. create the variables (firstName, lastName.....)
-// 2. search for the keys from the person
+const { firstName, lastName, email, password : hashedPassword, username, addresses : [firstAddress, secondAddress]} = person 
+// 1. create the variables (firstName, lastName, hashedPassword.....)
+// 2. search for the keys from the person (firstName, lastName, email, password )
 // 3. reasign that value into the variables
 console.log(person)
+
 
 const animals = ['horse', 'dog', 'fish', 'cat', 'bird'];
 const [, , thirdAnimal] = animals
 console.log(thirdAnimal)
 
 // ------------- spread/rest ------------
-const animalCopy = [...animals]
+
+const animalCopy = [...animals, 'hamster'] // important! push without .push
+console.log(animals)
 console.log(animalCopy)
 
-const personCopy = {...person}
+const personCopy = {...person, createdAt : "12345"}
 console.log(personCopy)
 
+
+
 // ------------- arrow function ------------
-function sayHello(name){
+function sayHello(name){ 
     console.log("Hello, "+ name)
 }
 
 const sayHello2 = function(name){
     console.log("Hello2, "+name)
 }
-
+// () => {}
 const sayHello3 = (name) =>{
     console.log("Hello3, "+ name)
 }
 
+const sayHello4 = name =>{
+    console.log(`Hello4, ${name}`)
+}
+
+const sayHelloAnonymous = () =>{
+    console.log("Hello, stranger!")
+}
 sayHello("Pepper")
 sayHello2("Pepper")
 sayHello3("Pepper")
+sayHello4("Pepper")
+sayHelloAnonymous()
 
-// ------------- ternary operator (if-else) & short-circuited logical operator(if) ------------
+// function that return something
+function changePrice(price, discount){
+    return price*discount
+}
 
+// longhanded arrow function
+const changePrice2 = (price, discount) =>{ // with {}, need "return"
+    return price*discount
+}
+
+// shorthanded arrow function
+const changePrice3 = (price, discount) => price*discount // without {}, implicit return
+
+const changePrice4 = (price, discount) => (price*discount) // with (), implicit return
+
+
+console.log(changePrice(100, 0.8))
+console.log(changePrice2(100, 0.7))
+console.log(changePrice3(100, 0.6))
+console.log(changePrice4(100, 0.5))
+// ------------- ternary operator (if-else) & short-circuit logical operator(if) ------------
+
+const rating = 7
+
+if(rating >5){
+    console.log("This restaurant is great!")
+}else{
+    console.log("This restaurant needs improvement!")
+}
+
+// (condition)?true-statement: else-statement
+rating >5?
+    console.log("This restaurant is great!!"):
+    console.log("This restaurant needs improvement!!")
+
+// short-circuit logical operator(if)  --- condition&& result
+const likes = 100
+if(likes > 50){
+    console.log("This is popular")
+}
+
+likes>50 && rating>5&&  console.log("This is popular!!")

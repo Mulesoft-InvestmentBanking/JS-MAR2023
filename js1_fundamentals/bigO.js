@@ -6,8 +6,7 @@ const minMax1 = (arr)=>{ // array has n elements
         if(i > max) max = x;
     }
 }
-// time complexity :  ?
-// space: ?
+// time complexity :  O(N)
 
 
 const minMax2 = (arr)=>{
@@ -20,8 +19,8 @@ const minMax2 = (arr)=>{
         if(i < max) max = x;
     }
 }
-// time complexity :  ?
-// space: ?
+// time complexity :  O(N)
+
 
 const runtime1 = (arrA, arrB)=>{ // a : arrA elements; b: arrB elements
     for(let a of arrA){ // run a times
@@ -31,17 +30,17 @@ const runtime1 = (arrA, arrB)=>{ // a : arrA elements; b: arrB elements
         console.log(b)
     }
 }
-// time complexity :  ?
-// space: ?
+// time complexity :  O(a+b)
+
 
 const runtime2 = (arrA, arrB)=>{
-    for(let a of arrA){
-        for(let b of arrB){
+    for(let a of arrA){ // run a times
+        for(let b of arrB){ // run b times
             console.log(a+ ", " +b)
         }
     }
 }
-// time complexity :  ?
+// time complexity :  O(ab)
 
 
 
@@ -49,27 +48,27 @@ const runtime2 = (arrA, arrB)=>{
 const ex1 = (arr)=>{ // arr length : N
     let sum =0;
     let product = 1;
-    for(let i=0; i<arr.length;i++){
+    for(let i=0; i<arr.length;i++){ // run N times
         sum+= arr[i];
     }
-    for(let i=0; i<arr.length;i++){
+    for(let i=0; i<arr.length;i++){ // run N times
         product *= arr[i];
     }
     console.log(sum+ " , " + product)
 }
-// time complexity :  ?
+// time complexity :  O(N)
 
 
 
 
 const ex2 = (arr) =>{
-    for(let i=0; i< arr.length; i++){ // n
-        for(let j=0; j< arr.length; j++){ // n
+    for(let i=0; i< arr.length; i++){ // [1,2,3,4,5]
+        for(let j=0; j< arr.length; j++){ //  
             console.log(arr[i] + " , " + arr[j])
         }
     }
 }
-// time complexity :  ?
+// time complexity :  O(N^2)
 
 
 const ex3 = (arr) =>{
@@ -79,7 +78,7 @@ const ex3 = (arr) =>{
         }
     }
 }
-// time complexity : ?
+// time complexity : O(N^2)
 
 
 
@@ -90,7 +89,7 @@ const ex4 = (arrA, arrB)=>{ // a, b
         }
     }    
 }
-// time complexity :  ?
+// time complexity :  O(a*b)
 
 
 const ex5 = (arr1, arr2)=>{
@@ -102,7 +101,7 @@ const ex5 = (arr1, arr2)=>{
         }
     }    
 }
-// time complexity : ?
+// time complexity : O(N^2)
 
 const ex6 = (arr) =>{
     for(let i=0; i<arr.length/2 ; i++){
@@ -112,23 +111,23 @@ const ex6 = (arr) =>{
         arr[j] = temp;
     }
 }
-// time complexity :  ?
+// time complexity :  O(N)
 
 // to find the power of 2:
-const ex7 = (n) =>{   //10, 5, 2, 1, 
+const ex7 = (n) =>{  
     if(n<1){
         return 0;
     }else if(n==1){
         console.log(1);
         return 1;
     }else{
-        let prev = ex7(n/2) // run n/2
+        let prev = ex7(n/2) 
         let curr = prev *2;
         console.log(curr)
         return curr
     }
 }
-// time complexity :  ?
+// time complexity :  O(log N)
 
 
 
