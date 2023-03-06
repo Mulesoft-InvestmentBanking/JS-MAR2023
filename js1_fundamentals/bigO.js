@@ -90,7 +90,7 @@ const ex4 = (arrA, arrB)=>{ // a, b
         }
     }    
 }
-// time complexity :  O(ab)
+// time complexity :  ?
 
 
 const ex5 = (arr1, arr2)=>{
