@@ -8,6 +8,16 @@ const returningItem = (person, price) =>{
     console.log(`Processing refund for ${person}, ${price} will be issued at ${person}'s bank account`)
 }
 
+const parentFunction = (person, price, fx)=>{ // going to a register
+    console.log("Welcome to the store")
+    fx(person, price)
+}
+
+parentFunction("Heidi", 100, returningItem)
+parentFunction("Pepper", 10, makingPurchase)
+
+
+
 
 // ------ Object.freeze() -------
 const shoppingList = [
@@ -22,15 +32,42 @@ const shoppingList = [
 // ------ .map & .filter -------
 // --- .map() ---
 // DEMO: return an array of prices
+const priceArr = []
+for(const element of shoppingList){
+    priceArr.push(element.price)
+}
+console.log(priceArr)
 
+const priceArr2 = shoppingList.map((element)=>{
+    return `<li> ${element.price}  </li>`
+})
+console.log(priceArr2)
 
 // TODO: return a list of item names
 
 
 // --- .filter() ---
 // DEMO: return a list of cheap items (cheap: price< 100)
+const cheapItems = []
+for(const element of shoppingList){
+    if(element.price < 100){ // the return for .filter
+        cheapItems.push(element)
+    }
+}
+console.log(cheapItems)
+
+const cheapItems2 = shoppingList.filter((element)=>{
+    return element.price < 100
+})
+console.log(cheapItems2)
  
 // DEMO: return a list of cheap items with only the names
+const cheapItemNames = shoppingList
+    .filter((element)=>element.price < 100)
+    .map((ele)=> ele.item)
+
+console.log(cheapItemNames)
+
 
 // TODO: given a deleteId, return a list of items without the item of that matching id 
 
