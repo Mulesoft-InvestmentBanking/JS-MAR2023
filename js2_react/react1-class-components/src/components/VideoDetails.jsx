@@ -10,7 +10,15 @@ class VideoDetails extends Component{
                 <h3> Title: {title}</h3>
                 <h3> Views: {this.props.views}</h3>
                 <h3> Hashtags: {this.props.hashtags}</h3>
-
+                <ul>
+                    {
+                        this.props.hashtags.map((eachTag, i)=>{
+                            return (
+                                <li key={i}> {i} : {eachTag}</li>
+                            )
+                        })
+                    }
+                </ul>
             </fieldset>
         )
     }
