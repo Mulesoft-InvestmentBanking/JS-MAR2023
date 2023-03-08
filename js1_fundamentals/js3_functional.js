@@ -114,8 +114,8 @@ console.log(array2.slice(1,2)); // starting at 1, ends at 2
 console.log(array2)
 
 // -- Sorting --
-console.log(names)
-const sortedNames = [...names].sort()
+console.log(cheapItemNames)
+const sortedNames = [...cheapItemNames].sort()
 console.log(sortedNames)
 
 console.log(priceArr)
