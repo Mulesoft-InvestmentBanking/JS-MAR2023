@@ -3,13 +3,13 @@ import FormDisplay from './FormDisplay'
 // for all input, state variables
 const Form1 = () => {
     const [username, setUsername] = useState("anonymous")
-    const [email, setEmail] = useState("")
+    const [age, setAge] = useState(10)
     const [password, setPassword] = useState("")
 
     const handleSubmit = (e) =>{
         e.preventDefault()
         // send the completed form into backend using API
-        const newUser = {username, email, password }
+        const newUser = {username, age, password }
         console.log(newUser)
     }
 
@@ -23,9 +23,9 @@ const Form1 = () => {
                         name="username" value={username} />
                 </div>
                 <div>
-                    <label> Email: </label>
-                    <input type="text" onChange={(e) => setEmail(e.target.value)}
-                        name="email" value={email} />
+                    <label> Age: </label>
+                    <input type="number" onChange={(e) => setAge(e.target.value)}
+                        name="age" value={age} />
                 </div>
                 <div>
                     <label> Password: </label>
@@ -34,7 +34,7 @@ const Form1 = () => {
                 </div>
                 <button type="submit"> Submit</button>
             </form>
-            <FormDisplay username={username} email={email} password={password}/>
+            <FormDisplay username={username} age={age} password={password}/>
         </fieldset>
     )
 }

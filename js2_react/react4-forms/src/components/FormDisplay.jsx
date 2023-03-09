@@ -5,7 +5,7 @@ const FormDisplay = (props) => {
         <fieldset>
             <legend> FormDisplay.jsx</legend>
             <h2> Username: {props.username}</h2>
-            <h2> Email: {props.email} </h2>
+            <h2> age: {props.age} </h2>
             <h2> Password: {props.password}</h2>
         </fieldset>
     )
