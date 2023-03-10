@@ -5,6 +5,7 @@ const Form3 = () => {
     const [username, setUsername] = useState("")
     const [age, setAge] = useState(10)
     const [password, setPassword] = useState("")
+    const [confirm, setConfirm] =useState("")
 
     const [isSubmitted, setIsSubmitted] = useState(false)
 
@@ -14,52 +15,55 @@ const Form3 = () => {
     const [passwordError, setPasswordError] = useState(true)
 
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault()
         // send the completed form into backend using API
-        if(usernameError || ageError || passwordError){ // invalid form
+        if (usernameError || ageError || passwordError) { // invalid form
             alert("invalid form")
-        }else{ // valid form
+        } else { // valid form
             setIsSubmitted(true)
-            const newUser = {username, age, password }
+            const newUser = { username, age, password }
             console.log(newUser)
         }
     }
 
-    const handleSubmittedMessage = () =>{
-        if(isSubmitted){
+    const handleSubmittedMessage = () => {
+        if (isSubmitted) {
             return "Thank you for submitting the form"
-        }else{
-            return "Please fill in the form" 
+        } else {
+            return "Please fill in the form"
         }
     }
 
-    const handleUsername = (e) =>{
+    const handleUsername = (e) => {
         setUsername(e.target.value)
-        if(e.target.value.length < 3){
+        if (e.target.value.length < 3) {
             setUsernameError("username must be at least 3 characters")
-        }else{
+        } else {
             setUsernameError("")
         }
     }
 
-    const handleAge = (e)=>{
+    const handleAge = (e) => {
         setAge(e.target.value)
-        if(e.target.value < 18){
+        if (e.target.value < 18) {
             setAgeError("Age must be at least 18")
-        }else{
+        } else {
             setAgeError("")
         }
     }
 
-    const handlePassword = (e) =>{
+    const handlePassword = (e) => {
         setPassword(e.target.value)
-        if(e.target.value.length < 8){
+        if (e.target.value.length < 8) {
             setPasswordError("Password must be at least 8 characters")
-        }else{
+        } else {
             setPasswordError("")
         }
     }
+
+
+
 
     return (
         <fieldset>
@@ -71,23 +75,23 @@ const Form3 = () => {
                     <label> Username: </label>
                     <input type="text" onChange={handleUsername}
                         name="username" value={username} />
-                    <p style={{color: "red"}}> {usernameError} </p>
+                    <p style={{ color: "red" }}> {usernameError} </p>
                 </div>
                 <div>
                     <label> Age: </label>
                     <input type="number" onChange={handleAge}
                         name="age" value={age} />
-                    <p style={{color: "red"}}> {ageError} </p>
+                    <p style={{ color: "red" }}> {ageError} </p>
                 </div>
                 <div>
                     <label> Password: </label>
                     <input type="password" onChange={handlePassword}
                         name="password" value={password} />
-                    <p style={{color: "red"}}> {passwordError} </p>
+                    <p style={{ color: "red" }}> {passwordError} </p>
                 </div>
                 <button type="submit" disabled={usernameError || ageError || passwordError}> Submit</button>
             </form>
-            <FormDisplay username={username} age={age} password={password}/>
+            <FormDisplay username={username} age={age} password={password} confirm={confirm}/>
         </fieldset>
     )
 }

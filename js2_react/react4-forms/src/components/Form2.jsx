@@ -8,14 +8,14 @@ const Form2 = () => {
 
     const [isSubmitted, setIsSubmitted] = useState(false)
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault()
         // send the completed form into backend using API
-        if(username.length < 3 || age < 18 || password.length < 8){ // invalid form
+        if (username.length < 3 || age < 18 || password.length < 8) { // invalid form
             alert("invalid form")
-        }else{ // valid form
+        } else { // valid form
             setIsSubmitted(true)
-            const newUser = {username, age, password }
+            const newUser = { username, age, password }
             console.log(newUser)
         }
     }
@@ -24,9 +24,9 @@ const Form2 = () => {
         <fieldset>
             <legend> Form2.jsx</legend>
             {
-                isSubmitted?
-                <h1>Thank you for submitting the form</h1>:
-                <h1>Please fill in the form</h1>
+                isSubmitted ?
+                    <h1>Thank you for submitting the form</h1> :
+                    <h1>Please fill in the form</h1>
             }
 
             <form onSubmit={handleSubmit}>
@@ -36,7 +36,7 @@ const Form2 = () => {
                         name="username" value={username} />
                     { // username must be at least 3 characters
                         username.length < 3 &&
-                        <p style={{color: "red"}}> username must be at least 3 characters </p>
+                        <p style={{ color: "red" }}> username must be at least 3 characters </p>
                     }
                 </div>
                 <div>
@@ -45,7 +45,7 @@ const Form2 = () => {
                         name="age" value={age} />
                     {
                         age < 18 &&
-                        <p style={{color: "red"}}> Age must be at least 18 </p>
+                        <p style={{ color: "red" }}> Age must be at least 18 </p>
                     }
                 </div>
                 <div>
@@ -54,12 +54,13 @@ const Form2 = () => {
                         name="password" value={password} />
                     { // username must be at least 3 characters
                         password.length < 8 &&
-                        <p style={{color: "red"}}> Password must be at least 8 characters </p>
+                        <p style={{ color: "red" }}> Password must be at least 8 characters </p>
                     }
                 </div>
+
                 <button type="submit" disabled={username.length < 3 || age < 18 || password.length < 8}> Submit</button>
             </form>
-            <FormDisplay username={username} age={age} password={password}/>
+            <FormDisplay username={username} age={age} password={password} confirm={confirm} />
         </fieldset>
     )
 }
