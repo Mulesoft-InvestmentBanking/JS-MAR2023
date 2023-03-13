@@ -9,12 +9,13 @@ const IcecreamTruck = () => {
         setIcecreamList([...icecreamList, newOrder])
     }
 
-    // to remove one item from the list (state variables)
+    // to remove one item from the list 
     const removeFromList = (deleteIdx) =>{
         const filteredList = icecreamList.filter((eachIcecream, idx)=>idx!== deleteIdx)
         setIcecreamList(filteredList)
     }
 
+    // to update one item from the list 
     const updateUrgentFromList = (updatedUrgent, idx)=>{
         // get the array index
         // change that element for isUrgent
