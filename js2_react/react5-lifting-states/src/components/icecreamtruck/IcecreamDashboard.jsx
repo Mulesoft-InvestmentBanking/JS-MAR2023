@@ -1,8 +1,15 @@
 import React from 'react'
 
 const IcecreamDashboard = (props) => {
+    const handleDelete =(idx)=>{
+        // call the backend to remove from database
+        props.onDelete(idx)
+    }
 
+    const toggleUrgent = (e, idx )=>{
+        props.onUpdateUrgent(e.target.checked, idx)
 
+    }
     return (
         <fieldset>
             <legend> IcecreamDashboard.jsx</legend>
@@ -26,9 +33,9 @@ const IcecreamDashboard = (props) => {
                                 <td> 
                                     <input type="checkbox" 
                                         checked={eachIcecream.isUrgent} 
-                                        onChange={(e)=>props.onUpdateUrgent(idx, e.target.checked)}/>
+                                        onChange={(e)=>toggleUrgent(e, idx)}/>
                                 </td>
-                                <td><button onClick={()=>props.onDelete(idx)} > Delete</button> </td>
+                                <td><button onClick={()=>handleDelete(idx)} > Delete</button> </td>
                             </tr>
                         ))
                     }
