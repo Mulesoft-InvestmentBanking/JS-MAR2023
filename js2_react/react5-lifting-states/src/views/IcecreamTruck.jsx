@@ -4,6 +4,7 @@ import IcecreamForm from '../components/icecreamtruck/IcecreamForm'
 
 const IcecreamTruck = () => {
     const [icecreamList, setIcecreamList] = useState([])
+
     // to push a new item into the list (for Form)
     const receiveOrder = (newOrder) =>{
         setIcecreamList([...icecreamList, newOrder])

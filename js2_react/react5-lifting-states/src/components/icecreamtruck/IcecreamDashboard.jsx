@@ -7,9 +7,10 @@ const IcecreamDashboard = (props) => {
     }
 
     const toggleUrgent = (e, idx )=>{
+        // call the backend to update the database 
         props.onUpdateUrgent(e.target.checked, idx)
-
     }
+
     return (
         <fieldset>
             <legend> IcecreamDashboard.jsx</legend>
@@ -41,6 +42,7 @@ const IcecreamDashboard = (props) => {
                     }
                 </tbody>
             </table>
+ 
         </fieldset>
     )
 }
