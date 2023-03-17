@@ -27,6 +27,7 @@ chrome-user-data
 .env
 react8-show-walker
 faker_demo
+server_advance
 packages/react-devtools-core/dist
 packages/react-devtools-extensions/chrome/build
 packages/react-devtools-extensions/chrome/*.crx
