@@ -1,4 +1,8 @@
-const Destination = require("../models/destination.model")
+// option 1
+// const Destination = require("../models/destination.model")
+
+// option 2
+const {Destination} = require("../models/destination.model")
 
 module.exports.apiTest = (req, res)=>{
     res.json({message: "It is working"})
@@ -38,3 +42,4 @@ module.exports.deleteDestination = (req, res)=>{
         .then(message=>res.json(message))
         .catch(err=>res.json(err))
 }
+

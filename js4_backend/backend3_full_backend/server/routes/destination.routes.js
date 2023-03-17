@@ -8,3 +8,4 @@ module.exports = (app)=>{
     app.put("/api/destinations/:id", DestinationController.updateDestination)
     app.delete("/api/destinations/:id", DestinationController.deleteDestination)
 }
+

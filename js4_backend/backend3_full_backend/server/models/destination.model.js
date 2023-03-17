@@ -22,5 +22,10 @@ const DestinationSchema = new mongoose.Schema({
     }
 }, {timestamps: true})
 
-const Destination = mongoose.model('Destination', DestinationSchema)
-module.exports = Destination
+// option 1
+// const Destination = mongoose.model('Destination', DestinationSchema)
+// module.exports = Destination
+
+// option 2
+module.exports.Destination = mongoose.model('Destination', DestinationSchema)
+// module.exports = { Destination: mongoose.model }
