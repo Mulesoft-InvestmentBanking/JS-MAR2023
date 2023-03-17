@@ -1,0 +1,30 @@
+db.item.insertOne({
+    name: "TV", 
+    price: 899, 
+    size: {
+        length: 60, 
+        height: 50
+    }
+})
+
+db.item.insertMany([
+    {name: "pen", price: 5.99, size:{length: 6, height: 5}},
+    {name: "pencil", price: 0.99, size:{length: 6, height: 5}},
+    {name: "PS5", price: 499, size:{length: 60, height: 50}}
+])
+
+db.item.find({name : "pen"})
+
+db.item.find({price: {$lt: 100}})
+
+db.item.find({$and: [
+    {price: {$lt:500}}, 
+    {price:{$gt:10}}
+    ]
+})
+
+db.item.updateMany({}, {$addToSet:{shops: 'Craigslist'}})
+
+db.item.updateMany(
+    {price: {$lt: 100}}, 
+    {$addToSet:{shops: {$each:["Walmart","Amazon"]}}})

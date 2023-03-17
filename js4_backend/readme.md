@@ -11,7 +11,7 @@
 
 ### Documents (Fields)
 - `db.item.insertOne({name: "TV", price: 899, size:{length: 60, height: 50}})` 
-- `db.item.insertMany([{name: "TV2", price: 899, size:{length: 60, height: 50}},{name: "TV3", price: 899, size:{length: 60, height: 50}}])` 
+- `db.item.insertMany([{name: "PS5", price: 499, size:{length: 60, height: 50}},{name: "pen", price: 5.99, size:{length: 10, height: 5}}])` 
 - insertMany allows you to add multiple items
 
 
