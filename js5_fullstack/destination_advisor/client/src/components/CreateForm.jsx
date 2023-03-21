@@ -11,6 +11,8 @@ const CreateForm = () => {
     const [imageUrl, setImageUrl] = useState("")
     const [season, setSeason] = useState("")
 
+    const [errors, setErrors] = useState([])
+
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
@@ -19,12 +21,20 @@ const CreateForm = () => {
         const newDest = { location, rating, imageUrl, season }
         axios.post("http://localhost:8000/api/destinations", newDest)
             .then(response => {
-                console.log(response)
+                console.log("successful response")
+                console.log(response.data)
                 // if successful, redirect
                 navigate("/destinations")
+                
             })
             .catch(err => {
-                console.log(err)
+                const errorResponseData = err.response.data.errors
+                const errMsgArr =[]
+
+                for(const eachKey in errorResponseData){
+                  errMsgArr.push(errorResponseData[eachKey].message)
+                }
+                setErrors(errMsgArr)
             })
     }
 
@@ -56,6 +66,11 @@ const CreateForm = () => {
                 </select>
             </p>
             <button type="submit"> Add destination</button>
+            {
+                errors.map((eachErr, idx)=>(
+                    <p style={{color: "red"}}> {eachErr}</p>
+                ))
+            }
         </form>
     )
 }

@@ -12,7 +12,6 @@ const DashboardPage = () => {
     useEffect(()=>{ // when the component is mounted
         axios.get("http://localhost:8000/api/destinations")
             .then(response=>{
-                console.log(response.data)
                 setDestinationList(response.data)
             })
             .catch(err=>console.log(err))

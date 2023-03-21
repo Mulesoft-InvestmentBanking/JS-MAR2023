@@ -11,20 +11,20 @@ module.exports.apiTest = (req, res)=>{
 module.exports.allDestinations = (req, res)=>{
     Destination.find()
         .then(destList=> res.json(destList))
-        .catch(err=>res.json(err))
+        .catch(err=>res.status(400).json(err))
 }
 
 module.exports.oneDestination = (req, res)=>{
     Destination.findOne({_id: req.params.id})
         .then(oneDest=> res.json(oneDest))
-        .catch(err=>res.json(err))
+        .catch(err=>res.status(400).json(err))
 }
 
 module.exports.createDestination = (req, res)=>{
     const newDest = req.body
     Destination.create(newDest)
         .then(addedDest => res.json(addedDest))
-        .catch(err=>res.json(err))
+        .catch(err=>res.status(400).json(err))
 }
 
 module.exports.updateDestination = (req, res)=>{
@@ -34,12 +34,12 @@ module.exports.updateDestination = (req, res)=>{
         {new: true, runValidators: true}// config
     )
         .then(updatedDest => res.json(updatedDest))
-        .catch(err=>res.json(err))
+        .catch(err=>res.status(400).json(err))
 }
 
 module.exports.deleteDestination = (req, res)=>{
     Destination.deleteOne({_id: req.params.id})
         .then(message=>res.json(message))
-        .catch(err=>res.json(err))
+        .catch(err=>res.status(400).json(err))
 }
 
