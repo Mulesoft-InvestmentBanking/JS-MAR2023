@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 // form to track all the input (useState)
 // after submit - post data to backend  (axios)
 // after successful submit - useNavigate
-const CreateForm = () => {
+const CreateForm = (props) => {
     const [location, setLocation] = useState("")
     const [rating, setRating] = useState(8)
     const [imageUrl, setImageUrl] = useState("")
@@ -24,7 +24,8 @@ const CreateForm = () => {
                 console.log("successful response")
                 console.log(response.data)
                 // if successful, redirect
-                navigate("/destinations")
+                // navigate("/destinations")
+                props.onCreate(response.data)
                 
             })
             .catch(err => {
